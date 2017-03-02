@@ -21,25 +21,43 @@ body {
   list-style: square;
 }
 
+.movieContainer {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 20px;
+}
+
 .movieDetail {
   border: 1px solid grey;
+  border-radius: 3px;
+  padding: 20px;
+  padding-top: 0
   /*width: 70%;*/
   /*margin-top: -76px;
   margin-left: 40px; */
 }
 
+#movieName {
+  font-size: 30px;
+}
+
+#description {
+  font-size: 10px;
+  font-weight: 100;
+}
+
 .sideThemeBar {
   height: 10px;
-  background-color: red;
+  margin-left: -20px; 
+  margin-right: -20px; 
+  
   /*height: 60px;*/
 }
 /*#firstRowInMovie {
   display: inline;
 }*/
 
-#ratingValue {
-  color: blue;
-}
 
 #rating {
   float: right;

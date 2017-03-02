@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import Filter from './Filter.jsx'
 import MovieList from './MovieList.jsx'
-import Loading from 'react-loading-bar'
 import 'react-loading-bar/dist/index.css'
-// import logo from './logo.svg';
-// import './App.css';
 const axios = require('axios')
 
 class App extends Component {
   constructor() {
     super()
-    this.state = { moviesDetails: '' }
+    this.state = { moviesDetails: '', moviesOfActor: ''}
 
   }
 
@@ -18,9 +15,12 @@ class App extends Component {
     const getMovies = () => (axios.get('https://movie-api-atlrumqzze.now.sh/movies-ref'))
 
     getMovies().then((response) => {
-      console.log(response.data)
-      this.setState({moviesDetails: response.data})
+      this.setState({ moviesDetails: response.data, moviesOfActor: response.data })
     })
+  }
+
+  displayFilteredMovies(filteredMovies) {
+    this.setState({moviesOfActor: filteredMovies})
   }
 
 
@@ -32,8 +32,8 @@ class App extends Component {
       return (
         <div className='container'>
           <h1 id='mainTitle'>This Week's movies</h1>
-          <Filter />
-          <MovieList moviesArray = {this.state.moviesDetails}/>
+          <Filter moviesArray={this.state.moviesDetails} filteredMovies={this.displayFilteredMovies.bind(this)}/>
+          <MovieList moviesOfActor={this.state.moviesOfActor} />
         </div>
       )
     }

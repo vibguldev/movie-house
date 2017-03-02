@@ -7,10 +7,9 @@ class MovieList extends Component {
   }
 
   render() {
-    console.log(this.props.moviesArray)
     return (
       <ul className='movieContainer'>
-        {this.props.moviesArray.map((movie) => {
+        {this.props.moviesOfActor.map((movie) => {
           return <MovieItem movieDetails={movie} />
         })}
       </ul>
