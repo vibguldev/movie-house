@@ -14,6 +14,11 @@ body {
 
 #movie {
   margin-top: 10px;
+  list-style: none
+}
+#actors {
+  margin-left: 20px;
+  list-style: square;
 }
 
 .movieDetail {
@@ -22,9 +27,7 @@ body {
   /*margin-top: -76px;
   margin-left: 40px; */
 }
-li {
-  list-style: none
-}
+
 .sideThemeBar {
   height: 10px;
   background-color: red;
