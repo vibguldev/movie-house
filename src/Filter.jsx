@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 
 class Filter extends Component {
-
-
   displayMoviesOfActor(movieOfActors) {
     const selectedActor = document.getElementById('actorDropDown').value
     this.props.filteredMovies(movieOfActors[selectedActor])
   }
 
-  render() {
+
+  filterMovies(moviesArray) {
     let movieOfActors = {}
-    this.props.moviesArray.forEach((movie) => {
+    moviesArray.forEach((movie) => {
       movie.actors.forEach((actor) => {
         let actorMovies = movieOfActors[actor]
         if ((actorMovies instanceof Array) === false) {
@@ -23,6 +22,10 @@ class Filter extends Component {
       })
 
     })
+    return movieOfActors
+  }
+  render() {
+    let movieOfActors = this.filterMovies(this.props.moviesArray)
     return (
       <div className='filterBar'>
         Filter By Actor
